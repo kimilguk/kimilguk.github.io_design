@@ -1,7 +1,7 @@
 /**
  * AdminLTE Demo Menu 를 수정한 내용
  * ------------------
- * 원본위치: src/main/webapp/resources/dist/js/demo.js
+ * 원본위치: src/main/webappdist/js/demo.js
  */
 /* 수업용 수정본(아래) */
 $(document).ready(function ($) {

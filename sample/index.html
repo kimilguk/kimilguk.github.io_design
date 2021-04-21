@@ -1,259 +1,110 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>스프링</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/tablet.css">
-<link rel="stylesheet" href="css/pc.css">
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/jquery.smooth-scroll.min.js"></script>
-<script src="js/main.js"></script>
-<!-- 슬라이드용 -->
-<link rel="stylesheet" href="css/swiper.min.css">
-<script src="js/rollmain.js"></script>
-<script src="js/jquery.easing.js"></script>
-<!-- //슬라이드용 -->
+<!DOCTYPE html><!-- 현재문서의 형태선언 -->
+<html><!-- html문서는 태그열고 ~ 태그닫고 하는 영역확인 중요 -->
+<head><!-- 문서내용과는 관계없는 문서정보=메타데이터(데이터의데이터)가 존재 -->
+<meta charset="UTF-8"><!-- 문서의 언어 인코딩설정  지금은 유니코드로 됨 -->
+<!-- 반응형을 작동하기 위해서 사용하는 메타태그 뷰포트는 모니터,모바일액정,프린터 -->
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<title>반응형홈페이지</title><!-- 문서의 제목을 브라우저상단왼쪽에 표시 -->
+<!-- 외부 자바스크립트 불러오는 태그(아래) -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script><!-- J쿼리코어 -->
+<script src="sample/js/user.js"></script>
+<!-- 외부 css파일 불러오는 태그(아래) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- 위 부트스트랩 코어 입니다. -->
+
+<link rel="stylesheet" href="sample/css/reset.css" type="text/css">
+<link rel="stylesheet" href="sample/css/mobile.css" type="text/css">
+<link rel="stylesheet" href="sample/css/tablet.css" type="text/css">
+<link rel="stylesheet" href="sample/css/pc.css" type="text/css">
+<!-- span태그 자리를 차지하지 않는 영역 = 한뼘 , px 픽셀 화면에 표시되는 크기의 단위 -->
+<!-- :콜론(속성:값, Key:Value), ;세미콜론(문장의 끝) -->
 <style>
-/* 사용자 추가 스타일(아래) */
+/*@미디어쿼리사용-메타태그viewport값필수*/
+/*PC용 스타일시작*/
+/*미디어쿼리:미디어의 가로크기가 1132px 이상이면 아래 스타일 적용*/
+@media all and (min-width:1132px) {
 
+
+
+}
+/*PC용 스타일 끝*/
 </style>
-</head>
-<body>
-<!-- 헤더부터푸터까지 -->
-<div id="wrap">
-
-<!-- 헤더상단메뉴로고영역 -->
-<header id="header">
-	<div class="header_area">
-		<!-- 상단로고영역 -->
-		<h1><a href="index.html">스프링 in 자바</a></h1>
-		<!-- //상단로고영역 -->
-		<!-- 상단메뉴영역 -->
-		<p class="openMOgnb"><a href="#"><b class="hdd">메뉴열기</b> <span></span><span></span><span></span></a></p>
-		<div class="header_cont">
-				<ul class="util clear">
-					<li><a href="login.html">로그인</a></li>
-					<li><a href="join.html">회원가입</a></li>
-					<li><a href="mypage.html">마이페이지</a></li>
-				</ul>
-				<nav>
-				<ul class="gnb clear">
-					<li><a href="board_list.html" class="openAll1">스프링정보</a>
-
-                        <div class="gnb_depth gnb_depth2_1">
-                            <ul class="submenu_list">
-                                <li><a href="board_list.html">국내</a></li>
-                                <li><a href="board_list.html">해외</a></li>
-                            </ul>
-                        </div>
-					</li>
-					<li><a href="board_list.html" class="openAll2">고객센터</a>
-				        <div class="gnb_depth gnb_depth2_2">
-                            <ul class="submenu_list">
-                                <li><a href="board_list.html">공지사항</a></li>
-                                <li><a href="board_list.html">문의하기</a></li>
-                            </ul>
-                        </div>
-					</li>
-					<li><a href="board_list.html" class="openAll3">상품투어</a>
-                        <div class="gnb_depth gnb_depth2_3">
-                            <ul class="submenu_list">
-                                <li><a href="board_list.html">프로그램 소개</a></li>
-                                <li><a href="board_list.html">스프링자료</a></li>
-                            </ul>
-                        </div>
-					</li>
-					<li><a href="board_list.html" class="openAll4">티켓/가이드</a>
-                        <div class="gnb_depth gnb_depth2_4">
-                            <ul class="submenu_list">
-                                <li><a href="board_list.html">항공</a></li>
-                                <li><a href="board_list.html">호텔</a></li>
-                            </ul>
-                        </div>
-					</li>
-				</ul>
-                </nav>
-				<p class="closePop"><a href="javascript:;">닫기</a></p>
-			</div>
-		<!-- //상단메뉴영역 -->
-	</div>
-</header>
-<!-- //헤더상단메뉴로고영역 -->
-
-<!-- 메인콘텐츠영역 -->
-<div id="container">
-	<!-- PC용슬라이드영역 -->
-	<div class="main_rolling_pc">
-        <div class="visualRoll">
-        	<!-- 슬라이드이미지영역 -->
-            <ul class="viewImgList">
-                <li class="imglist0">
-                    <div class="roll_content">
-                        <a href="javascript:;">
-                        <img src="img/img_slidecontents01.png" alt="OOOO OOOOO OOOO OOOOO, 스프링... OOOO OOOOO?"></a>
-                        <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
-                    </div>
-                </li>
-                <li class="imglist1">
-                    <div class="roll_content">
-                        <a href="javascript:;">
-                        <img src="img/img_slidecontents02.png" alt="OOOO OOOOOOOOO OOOOO 스프링정보, 스프링... OOOO OOOOO?"></a>
-                        <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
-                    </div>
-                </li>
-                <li class="imglist2">
-                    <div class="roll_content">
-                        <a href="javascript:;">
-                        <img src="img/img_slidecontents03.png" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?"></a>
-                        <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
-                    </div>
-                </li>
-            </ul>
-            <!-- //슬라이드이미지영역 -->
-            <!-- 슬라이드버튼영역 -->
-            <div class="rollbtnArea">
-                <ul class="rollingbtn">
-                    <li class="seq butt0"><a href="#butt"><img src="img/btn_rollbutt_on.png" alt="1번" /></a></li>
-                    <li class="seq butt1"><a href="#butt"><img src="img/btn_rollbutt_off.png" alt="2번" /></a></li>
-                    <li class="seq butt2"><a href="#butt"><img src="img/btn_rollbutt_off.png" alt="3번" /></a></li>
-                    <li class="rollstop"><a href="#" class="stop"><img src="img/btn_roll_stop.png" alt="멈춤" /></a></li>
-                    <li class="rollplay"><a href="#" class="play"><img src="img/btn_roll_play.png" alt="재생" /></a></li>
-                </ul>
-            </div>
-            <!-- //슬라이드버튼영역 -->
-        </div>
-    </div>
-	<!-- //PC용슬라이드영역 -->
-
-	<!-- 모바일슬라이드영역 -->
-	<div class="main_rolling_mobile">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-            	<!-- 슬라이드이미지영역 -->
-                <div class="swiper-slide">
-                    <a href="javascript:;"><img src="img/mainslide_mob01.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO" /></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="javascript:;"><img src="img/mainslide_mob02.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO" /></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="javascript:;"><img src="img/mainslide_mob03.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO" /></a>
-                </div>
-                <!-- //슬라이드이미지영역 -->
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-	<!-- //모바일슬라이드영역 -->
-
-	<!-- 갤러리최근게시물영역 -->
-	<div class="about_area">
-		<h2>겔러리 최근게시물 <b>TOP 3</b></h2>
-		<div class="about_box">
-			<ul class="place_list box_inner clear">
-				<li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.contact_pop').show();">
-						<img class="img_topplace" src="img/img_topplace01.jpg" alt="OOOO OOOOO" />
-						<h3>OOOO OOOOO</h3>
-						<p class="txt">OOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOO!</p>
-						<span class="view">VIEW</span></a>
-				</li>
-				<li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.space_pop').show();">
-						<img class="img_topplace" src="img/img_topplace02.jpg" alt="OOOO OOOOO" />
-						<h3>OOOO OOOOO</h3>
-						<p class="txt">OOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOO.</p>
-						<span class="view">VIEW</span></a>
-				</li>
-				<li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.program_pop').show();">
-						<img class="img_topplace" src="img/img_topplace03.jpg" alt="OOOO OOOOO" />
-						<h3>OOOO OOOOO</h3>
-						<p class="txt">OOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
-						<span class="view">VIEW</span></a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<!-- //갤러리최근게시물영역 -->
-
-	<!-- 카카오톡상담및최근공지사항영역 -->
-	<div class="appbbs_area">
-		<div class="appbbs_box box_inner clear">
-			<h2 class="hdd">상담과 최근게시물</h2>
-			<p class="app_line">
-				<a href="javascript:;">카카오톡 1:1 상담</a>
-				<a href="javascript:;">전화 상담 신청</a>
-			</p>
-			<div class="bbs_line">
-				<h3>NOTICE</h3>
-				<ul class="notice_recent">
-					<li><a href="javascript:;">OOOO OOOOO (스프링OOOO OOOOO)</a></li>
-					<li><a href="javascript:;">OOOO OOOOOOOOO OOOOO</a></li>
-					<li><a href="javascript:;">OOOO OOOOO/OOOO OOOOO</a></li>
-					<li><a href="javascript:;">OOOO OOOOO OPEN! (스프링정보, OOOO OOOOO)</a></li>
-					<li><a href="javascript:;">OOOO OOOOO 서비스 점검 안내</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- //카카오톡상담및최근공지사항영역 -->
-</div>
-<!-- //메인콘텐츠영역 -->
-
-<!-- 푸터사업자정보영역 -->
-<footer id="footer">
-	<div class="foot_area box_inner">
-		<ul class="foot_list clear">
-			<li><a href="javascript:;">이용약관</a></li>
-			<li><a href="javascript:;">개인정보취급방침</a></li>
-		</ul>
-		<h2>스프링</h2>
-           <p class="addr">OOOO OOOOO OOOO OOOOOOOOO OOOOO <span class="gubun">/</span>
-			<span class="br_line">대표전화 <span class="space0">02-1234-5678</span> <span class="gubun">/</span>
-				<span class="br_line">E-mail : <span class="space0"> admin@OOOO OOOOO.com</span></span>
-			</span>
-		</p>
-		<p class="copy box_inner">Copyright(c) OOOO OOOOO all right reserved</p>
-		<ul class="snslink clear">
-			<li><a href="javascript:;">blog</a></li>
-			<li><a href="javascript:;">facebook</a></li>
-			<li><a href="javascript:;">instargram</a></li>
-		</ul>
-	</div>
-</footer>
-<!-- //푸터사업자정보영역 -->
-
-</div>
-<!-- //헤더부터푸터까지 -->
-
-<!-- 퀵메뉴영역 -->
-<h2 class="hdd">빠른 링크 : 전화 문의,카카오톡,오시는 길,꼭대기로</h2>
-<div class="quick_area">
-	<ul class="quick_list">
-		<li><a href="tel:010-1234-5678"><h3>전화 문의</h3><p>010-1234-5678</p></a></li>
-		<li><a href="javascript:;"><h3>카카오톡 <em>상담</em></h3><p>1:1상담</p></a></li>
-		<li><a href="javascript:;"><h3 class="to_contact">오시는 길</h3></a></li>
-	</ul>
-	<p class="to_top"><a href="#wrap" class="s_point">TOP</a></p>
-</div>
-<!-- //퀵메뉴영역 -->
-
-<!-- 모바일전용 슬라이드스크립트영역 손가락으로 움직이는 슬라이드 -->
-<script type="text/javascript" src="js/swiper.min.js"></script>
-<script type="text/javascript">
-   $(document).ready(function(){
-		var swiper = new Swiper('.swiper-container', {
-			loop: true,
-			autoplay:5500,
-		    autoplayDisableOnInteraction: false,
-			pagination: '.swiper-pagination',
-            paginationClickable: true
-		});
+<script>
+/* 자바스크립트 시작 */
+$(document).ready(function(){
+	$(".carousel").carousel({
+		interval:1000,//이미지가 좌우로 움직이는 대기시간 지정. 1초, 크롬,IE작동OK, 파이어폭스X
+		pause:false
 	});
+});
+/* 자바스크립트 끝 */
 </script>
-<!-- //모바일전용 슬라이드스크립트영역 -->
+</head>
+<body><!-- 문서내용이 들어가는 영역 -->
+<div id="wrap"><!-- 랩핑시킨 영역 -->
+<header class="header">
+<!-- 상단 로고와 햄버거 메뉴영역 시작 -->
+<h1 class="logo">
+<a href="index.html">LOGO</a><!-- a태그는 페이지이동역할, href헤르프 속성값에 URL을 입력해서 이동 -->
+</h1><!-- 헤드라인 글자를 표시 h1~h6 -->
+<div class="menu-toggle-btn">
+<span></span>
+<span></span>
+<span></span>
+</div>
 
+<!-- html5 시만텍 웹 = 의미가 있는 태그를 사용하게 해서 AI가 인식하게 됩니다. nav태그 -->
+<nav class="gnb"><!-- gnb:글로벌네이게이션:전체영역메뉴  Global Navigagion -->
+<!-- 리스트를 모여주는 태그 ul(UnOrdered List *.~, *.~ ) , ol(Ordered List 1.~, 2.~ ) -->
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="weare.html">WE ARE</a></li>
+<li><a href="work.html">WORK</a></li>
+<li><a href="blog.html">BLOG</a></li>
+<li><a href="contact.html">CONTACT US</a></li>
+</ul>
+</nav>
+<!-- 상단 로고와 햄버거 메뉴영역 끝 -->
+</header>
+<section><!-- division디비전이라는 div 영역표시 태그 대신에 사용 -->
+<!-- 본문 슬라이드 영역 시작 -->
+<!-- 이미지를 불러오는 태그 img -->
+<!-- 경로:상대(./img/...),절대경로(sample/img/...) -->
+<!-- 태그안쪽에 지정한 스타일을 인라인스타일 -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="sample/img/xmas.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="sample/img/xmas2.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="sample/img/santa.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- 본문 슬라이드 영역 끝 -->
+</section>
+<footer class="footer">
+<!-- 하단 로고 영역 시작 -->
+<p>LOGO</p><!-- 문장영역을 의미하는 Paragraph 태그입니다. -->
+<!-- 하단 로고 영역 끝 -->
+</footer>
+</div>
 </body>
 </html>

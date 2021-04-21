@@ -13,8 +13,18 @@
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/jquery.smooth-scroll.min.js"></script>
 <script src="js/main.js"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<!-- Bootstrap 4 -->
+<link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLte -->
+<link rel="stylesheet" href="dist/css/adminlte.min.css">	
+<!-- write.html은 섬머노트 웹에디터 부분 추가(아래) -->
+<link rel="stylesheet" href="plugins/summernote/summernote.css">
+<script src="plugins/summernote/summernote.js"></script>
 <style>
-
+.note-editor.note-frame.fullscreen{background:white;}
 </style>
 <script>
 $(document).ready(function() {
@@ -90,9 +100,10 @@ $(document).ready(function() {
 		<div class="location_area customer">
 			<div class="box_inner">
 				<h2 class="tit_page">스프링 <span class="in">in</span> 자바</h2>
-				<p class="location">고객센터 <span class="path">/</span> 로그인</p>
+				<p class="location">고객센터 <span class="path">/</span> 공지사항</p>
 				<ul class="page_menu clear">
-					<li><a href="#" class="on">로그인</a></li>
+					<li><a href="#" class="on">공지사항</a></li>
+					<li><a href="#">문의하기</a></li>
 				</ul>
 			</div>
 		</div>	
@@ -101,23 +112,35 @@ $(document).ready(function() {
 		<!-- 메인본문영역 -->
 		<div class="bodytext_area box_inner">
 			<!-- 폼영역 -->
-			<form method="POST" name="login_form" action="login.html" class="appForm">
+			<form method="POST" name="board_write" action="board_write.html" class="appForm">
 				<fieldset>
-					<legend>로그인폼</legend>
+					<legend>상담문의 입력 양식</legend>
 					<p class="info_pilsoo pilsoo_item">필수입력</p>
 					<ul class="app_list">
 						<li class="clear">
-							<label for="id_lbl" class="tit_lbl pilsoo_item">아이디</label>
-							<div class="app_content"><input type="text" name="id"" class="w100p" id="id_lbl" placeholder="아이디를 입력해주세요" required/></div>
+							<label for="title_lbl" class="tit_lbl pilsoo_item">제목</label>
+							<div class="app_content"><input type="text" name="title" class="w100p" id="title_lbl" placeholder="제목을 입력해주세요" required/></div>
 						</li>
 						<li class="clear">
-							<label for="password_lbl" class="tit_lbl pilsoo_item">암호</label>
-							<div class="app_content"><input type="password" name="password" class="w100p" id="password_lbl" placeholder="암호를 입력해주세요" required/></div>
+							<label for="content_lbl" class="tit_lbl pilsoo_item">내용</label>
+							<div class="app_content">
+								<textarea name="content" id="content_lbl" class="w100p" placeholder="내용을 입력해주세요." required></textarea></div>
 						</li>
-
+						<li class="clear">
+							<label for="name_lbl" class="tit_lbl pilsoo_item">작성자명</label>
+							<div class="app_content"><input type="text" name="name" class="w100p" id="name_lbl" placeholder="이름을 입력해주세요" required/></div>
+						</li>
+						<li class="clear">
+		                    <label for="file_lbl" class="tit_lbl">첨부파일</label>
+		                    <div class="custom-file" style="width:96%;margin:0 2%;">
+			                    <input type="file" name="file" class="custom-file-input" id="customFile">
+			                    <label class="custom-file-label" for="customFile" style="color:#999;">파일첨부</label>
+			                </div>
+		                </li>
 					</ul>
 					<p class="btn_line">
-					<button class="btn_baseColor">로그인</button>
+					<button class="btn_baseColor">등록</button>
+					<a href="board_list.html" class="btn_baseColor">목록</a>
 					</p>	
 				</fieldset>
 			</form>
@@ -126,6 +149,38 @@ $(document).ready(function() {
 		<!-- //메인본문영역 -->
 	</div>
 	<!-- //메이콘텐츠영역 -->
+	
+	<!-- 첨부파일 부트스트랩 디자인 JS -->
+	<script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+	<!-- 첨부파일 선택한 내용 출력 실행 -->
+	<script>
+	$(document).ready(function () {
+	  bsCustomFileInput.init();
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$('#content_lbl').summernote({
+			height:150,
+			lang:"ko-KR",
+			placeholder:'글 내용을 입력해 주세요',
+			toolbar: [
+					    ['fontname', ['fontname']],
+					    ['fontsize', ['fontsize']],
+					    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+					    ['color', ['forecolor','color']],
+					    ['table', ['table']],
+					    ['para', ['ul', 'ol', 'paragraph']],
+					    ['height', ['height']],
+					    ['insert',['link','video']],//'picture',
+					    ['view', ['fullscreen', 'help']]
+					],
+			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'],
+			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+		});
+	});//textarea 중 content아이디영역을 섬머노트에디터로 변경처리 함수실행
+	</script>
+	
 	<!-- 푸터메뉴및사업자정보영역 -->
 	<footer>
 		<div class="foot_area box_inner">
@@ -152,13 +207,7 @@ $(document).ready(function() {
 <!-- //헤더에서푸터까지 -->
 
 <!-- 하단퀵메뉴영역 -->
-<h2 class="hdd">빠른 링크 : 전화 문의,카카오톡,오시는 길,꼭대기로</h2>
 <div class="quick_area">
-	<ul class="quick_list">
-		<li><a href="tel:010-1234-5678"><h3>전화 문의</h3><p>010-1234-5678</p></a></li>
-		<li><a href="javascript:;"><h3>카카오톡 <em>상담</em></h3><p>1:1상담</p></a></li>
-		<li><a href="javascript:;"><h3 class="to_contact">오시는 길</h3></a></li>
-	</ul>
 	<p class="to_top"><a href="#wrap" class="s_point">TOP</a></p>
 </div>
 <!-- //하단퀵메뉴영역 -->

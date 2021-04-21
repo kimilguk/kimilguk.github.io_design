@@ -10,21 +10,49 @@
 <link rel="stylesheet" href="css/tablet.css">
 <link rel="stylesheet" href="css/pc.css">
 <link rel="stylesheet" href="css/board.css">
+<link rel="stylesheet" href="css/join.css">
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/jquery.smooth-scroll.min.js"></script>
 <script src="js/main.js"></script>
+<!-- html5가 아닌 유효성 검사 라이브러리(아래) -->
+<script src="js/jquery.validate.js"></script>
+<script src="js/additional-methods.js"></script>
 <style>
-
+.myinfo {
+	width: 170px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	font-size: 18px;
+	background: #000;
+	color: #fff;
+}
+.radio_area {
+	padding-left: 5px;
+    padding-top: 5px;
+}
+.radio_area input[type="radio"] {display:none;}
+.radio_area label {display: none;}
+.gender {
+	padding: 4px 10px;
+    font-size: 14px;
+}
 </style>
 <script>
 $(document).ready(function() {
-	//라이브러리 사용않하고, 오리지널 j쿼리로 만드는 유효성(아래)
-	$("#search_form").submit(function(){ //검색버튼을 클릭=전송했을때.
-		var search_keyword = $("input[name=search_keyword]").val();
-		if(search_keyword == "") {
-			alert("검색어는 빈 값으로 검색할 수 없습니다.!");
-			return false;//조건이 맞으면, 전송중지.
+	$(".appForm").validate({
+		rules: {
+			password: "required",
+			password_chk: {
+				equalTo: "#password_lbl"
+			}
 		}
+	});
+	$.extend($.validator.messages, {
+		required: "필수 항목 입니다.",
+		email: "유효하지 않는 Email주소 입니다.",
+		digits: "숫자만 입력 가능합니다.",
+		equalTo: "비밀번호가 일치하지 않습니다."
 	});
 });
 </script>
@@ -97,10 +125,9 @@ $(document).ready(function() {
 		<div class="location_area customer">
 			<div class="box_inner">
 				<h2 class="tit_page">스프링 <span class="in">in</span> 자바</h2>
-				<p class="location">고객센터 <span class="path">/</span> 공지사항</p>
+				<p class="location">MYPAGE <span class="path">/</span> 개인정보수정</p>
 				<ul class="page_menu clear">
-					<li><a href="#" class="on">공지사항</a></li>
-					<li><a href="#">문의하기</a></li>
+					<li><a href="#" class="on">개인정보수정</a></li>
 				</ul>
 			</div>
 		</div>	
@@ -108,112 +135,70 @@ $(document).ready(function() {
 
 		<!-- 메인본문영역 -->
 		<div class="bodytext_area box_inner">
-			<!-- 검색폼영역 -->
-			<form id="search_form" name="search_form" action="board_list.html" class="minisrch_form">
+			<div class="myinfo">내 정보</div>
+			<!-- 폼영역 -->
+			<form method="POST" name="join_form" action="join.html" class="appForm">
 				<fieldset>
-					<legend>검색</legend>
-					<input name="search_keyword" type="text" class="tbox" title="검색어를 입력해주세요" placeholder="검색어를 입력해주세요">
-					<button class="btn_srch">검색</button>
+					<legend>회원가입폼</legend>
+					<p class="info_pilsoo pilsoo_item">필수입력</p>
+					<ul class="app_list">
+						<li class="clear">
+							<label for="email_lbl" class="tit_lbl pilsoo_item">이메일</label>
+							<div class="app_content"><input type="email" name="email"" class="w100p" id="email_lbl" placeholder="이메일을 입력해주세요" required/></div>
+						</li>
+						<li class="clear">
+							<label for="name_lbl" class="tit_lbl pilsoo_item">작성자명</label>
+							<div class="app_content"><input type="text" name="name" class="w100p" id="name_lbl" placeholder="이름을 입력해주세요" required/></div>
+						</li>
+						<li class="clear">
+							<label for="password_lbl" class="tit_lbl pilsoo_item">비밀번호</label>
+							<div class="app_content"><input type="password" name="password" class="w100p" id="password_lbl" placeholder="비밀번호를 입력해주세요" required/></div>
+						</li>
+						<li class="clear">
+							<label for="password_chk_lbl" class="tit_lbl pilsoo_item">비밀번호확인</label>
+							<div class="app_content"><input type="password" name="password_chk" class="w100p" id="password_chk_lbl" placeholder="비밀번로를 다시 입력해주세요" required/></div>
+						</li>
+						<li class="clear">
+							<label for="tel_lbl" class="tit_lbl pilsoo_item">연락처</label>
+							<div class="app_content"><input type="digits"" name="tel" class="w100p" id="tel_lbl" placeholder="휴대폰'-'없이 숫자만 입력해주세요" required/></div>
+						</li>
+						<li class="clear">
+							<label for="gender_lbl" class="tit_lbl pilsoo_item">성별</label>
+							<div class="app_content radio_area">
+								<input type="radio" name="gender" class="css-radio" id="man_lbl" checked="" />
+								<label for="man_lbl">남</label>
+								<input type="radio" name="gender" class="css-radio" id="woman_lbl" />
+								<label for="woman_lbl">여</label>
+								<select name="gender" class="gender" required>
+									<option value="" selected>성별을 선택해 주세요</option>
+									<option value="male">남자</option>
+									<option value="female">여자</option>
+								</select>
+							</div>
+						</li>
+						<li class="clear">
+							<label for="comment_lbl" class="tit_lbl pilsoo_item">문의내용</label>
+							<div class="app_content"><textarea name="comment" class="w100p" id="comment_lbl" placeholder="내용을 입력해주세요" required></textarea></div>
+						</li>
+						<li class="clear">
+							<label for="agree_lbl" class="tit_lbl pilsoo_item">개인정보활용동의</label>
+							<div class="app_content checkbox_area"><input type="checkbox"" name="agree" class="css-checkbox" id="agree_lbl" required checked/>
+							<label for="agree_lbl" class="agree">동의함</label>
+							</div>
+						</li>
+					</ul>
+					<p class="btn_line">
+					<button class="btn_baseColor">정보수정</button>
+					<button class="btn_baseColor">회원탈퇴</button>
+					</p>	
 				</fieldset>
 			</form>
-			<!-- //검색폼영역 -->
-			
-			<!-- 게시물리스트영역 -->
-			<table class="bbsListTbl" summary="번호,제목,조회수,작성일 등을 제공하는 표">
-				<caption class="hdd">공지사항  목록</caption>
-				<thead>
-					<tr>
-						<th scope="col">번호</th>
-						<th scope="col">제목</th>
-						<th scope="col">조회수</th>
-						<th scope="col">작성일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td class="tit_notice"><a href="board_view.html">이번 여름 휴가 제주 갈까? 미션 투어 (스프링경비 50만원 지원)</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td class="tit_notice"><a href="board_view.html">박물관 미션 투어 응모 당첨자 발표</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td class="tit_notice"><a href="board_view.html">추석 연휴 티켓/투어 배송 및 직접 수령 안내</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td class="tit_notice"><a href="board_view.html">하롱베이 서비스 OPEN! (스프링정보, 가이드북, 가이드맵)</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td class="tit_notice"><a href="board_view.html">스프링 서비스 점검 안내 - 스프링에서 매월 실시하는 정기점검 안내</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td class="tit_notice"><a href="board_view.html">이번 여름 휴가 제주 갈까? 미션 투어 (스프링경비 50만원 지원)</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td class="tit_notice"><a href="board_view.html">박물관 미션 투어 응모 당첨자 발표</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td class="tit_notice"><a href="board_view.html">추석 연휴 티켓/투어 배송 및 직접 수령 안내</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td class="tit_notice"><a href="board_view.html">하롱베이 서비스 OPEN! (스프링정보, 가이드북, 가이드맵)</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td class="tit_notice"><a href="board_view.html">스프링 서비스 점검 안내</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-				</tbody>
-			</table>
-			<!-- //게시물리스트영역 -->
-			
-			<!-- 페이징처리영역 -->
-			<div class="pagination">
-				<a href="javascript:;" class="firstpage  pbtn"><img src="img/btn_firstpage.png" alt="첫 페이지로 이동"></a>
-				<a href="javascript:;" class="prevpage  pbtn"><img src="img/btn_prevpage.png" alt="이전 페이지로 이동"></a>
-				<a href="javascript:;"><span class="pagenum currentpage">1</span></a>
-				<a href="javascript:;"><span class="pagenum">2</span></a>
-				<a href="javascript:;"><span class="pagenum">3</span></a>
-				<a href="javascript:;"><span class="pagenum">4</span></a>
-				<a href="javascript:;"><span class="pagenum">5</span></a>
-				<a href="javascript:;" class="nextpage  pbtn"><img src="img/btn_nextpage.png" alt="다음 페이지로 이동"></a>
-				<a href="javascript:;" class="lastpage  pbtn"><img src="img/btn_lastpage.png" alt="마지막 페이지로 이동"></a>
-			</div>
-			<!-- //페이징처리영역 -->
-			<p class="btn_line">
-				<a href="board_write.html" class="btn_baseColor">등록</a>
-			</p>
+			<!-- //폼영역 -->
 		</div>
 		<!-- //메인본문영역 -->
 	</div>
 	<!-- //메이콘텐츠영역 -->
+	
 	<!-- 푸터메뉴및사업자정보영역 -->
 	<footer>
 		<div class="foot_area box_inner">

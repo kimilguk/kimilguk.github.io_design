@@ -1,230 +1,103 @@
 @charset "UTF-8";
-@media all and (min-width:801px) {
-/* 태블릿용 스타일 시작 */
+/*미디어쿼리:미디어의 가로크기가 768px 이상이면 아래 스타일 적용*/
+@media all and (min-width:768px) {
+/*공통사항 시작*/
+ul {text-align:center;}
+/*공통사항 끝*/	
+/*헤더영역시작*/
+.menu-toggle-btn {display:none;}
+.header .gnb {
+display:block;
+position:static;/*absolute에서 static*/
+background:none;
+width:auto;
+float:right;/*가로위치를 오른쪽으로 변경*/
+margin-top:10px;
+}
+.header .gnb li {
+float:left;
+border:none;
+/*width:95px;*//*수정한부분*/
+}
+.header .gnb li:last-child {border-bottom:none;}
+.header .gnb li a {
+display:inline-block;/*콘텐츠내용크기만큼만 자리를 차지하는 영역*/
+color:#3f51b5;
+padding-left:0px;/*추가한부분*/
+margin-right:30px;/*추가한부분*/
+}
+.header .gnb li a:hover {text-decoration:none;}
+/*헤더영역 끝*/
+/*슬라이드영역시작*/
+.carousel-item, .carousel-item img {height:500px;}
+/*슬아이드영역 끝*/
 
-/* 태블릿용 상단로고와메뉴스타일 */
-header {height:113px;}
-.header_area h1 {
-	float:left;
-	padding:25px 0 0;
-	padding-left:20px;
-	width:initial;
-	height:initial;
-	text-align:initial;
+/* we are 영역시작*/
+.float-clear {clear:both;}/*clear속성은 float작동을 없애는 역할 7.812498 + 94.4166 = 102.xx */
+.weare-body li {
+float:left;/*세로정렬을 가로정렬로 변경 부트스트랩의 그리드시스템 col-12(100%),col-3,col-3,col-3,col-3)의 원형 */
+width:23.046875%;/*(177포토샵레이아웃의가로값 / 768)x100 = 몇%*/
+margin-left:2.604166%;/*(20포토샵레이아웃의여백값/768)x100 = 몇%*/
+overflow:hidden;/*반응형list박스에서 가로크기를 벗어나는 이미지 내용은 숨김처리*/
 }
-.header_area h1 a {
-	display:block;
-	width:270px;
-	height:71px;
-	background-size:initial !important;
+.weare-body li img {width:100%;height:auto;}
+.weare-body {margin:10px 3%;}/*가운데 정렬, 10px상하, 3%좌우여백*/
+.weare-body li:first-child {
+margin-left:0px;
 }
-.openMOgnb {display:none;}
-.header_cont {
-	display:block;
-	float:right;
-	width:60%;
-	padding-right:20px;
-	background:none;
-}
-.closePop {display:none;}
-.util {
-	padding:0;
-	text-align:right;
-	padding-top:10px;
-}
-.util li {float:none; display:inline;}
-.util li::after {color:#fff;}
-.util li a {font-size:14px;}
-.gnb {
-	float:right;
-	padding-top:5px;
-	height:initial;
-	border-top:none;
-}
-.gnb li {
-	width:initial;
-	text-align:initial;
-	box-sizing:initial;
-	border-bottom:none;
-}
-.gnb li:nth-child(2n+1) {border-right:none;}
-.gnb li a {
-	padding:26px 25px;
-	font-size:18px;
-	height:inherit;
-	line-height:inherit;
-	background:none;
-}
-.gnb li + li a {background:none;}
-.gnb li + li + li a {background:none;}
-.gnb li + li + li + li a {background:none;}
-.gnb li:last-child a {padding-right:0px;}
-/* 태블릿용 상단로고와메뉴스타일 */
+/* we are 영역 끝*/
 
-/* 태블릿용 컨테이너영역 스타일 */
-#container {
-	padding-bottom:20px;
-	width:initial;
-	position:initial;
+/*work영역 시작*/
+.work-section li {
+float:left;/*세로배치를 가로배치로 변경*/
+width:50%;
+max-height:300px;/*높이가 들쑥 날쑥하면 이빨빠지는 부분이 생겨서 이미지 보이는 공간의 최고 높이를 300px로 고정*/
+overflow:hidden;/*만약에 300px 높은 이미지는 숨김처리가 됩니다.*/
 }
-/* //태블릿용 컨테이너영역 스타일 */
+/*work영역 끝*/
 
-/* 태블릿용 슬라이드영역 */
-.main_rolling_mobile {display:none;}
-.main_rolling_pc {display:block;}
-.visualRoll {
-	position:relative;
-	width:100%;
+/*blog영역 시작*/
+.blog-section li {
+float:left;/*세로배치가 3개 가로배치로 변함*/
+width:31.59722222222%; /*3개중 1개의가로크기 (242px/768px)*100 = 31.59722222222% */
+margin-left:2.60416666666%; /*1개여백구하기 (20px/768px)*100= 2.60416666666% */
+height:300px;
+border:1px solid #ccc;
 }
-.viewImgList {
-	position:relative;
-	width:100%;
+.blog-section li .preview {
+height:200px;
+overflow:hidden;
+/*디버그용코드 border:1px solid red;*/
+/*min-height:200px;이미지 최소높이를 지정*/
+/*max-height:200px;이미지 초대높이를 지정*/
 }
-.viewImgList li {
-	text-align:center;
-	height:550px;
-	line-height:550px;
-	background-size:cover;
+.blog-section li .info2 {
+padding:10px;
 }
-li.imglist0 {
-	position:relative;
-	z-index:50;
-	background:#8868d1;
+.blog-section li:first-child {/*마지막 li가 아래로 떨어지는 것을 방지역할*/
+margin-left:0px;
 }
-li.imglist1 {
-	position:absolute;
-	width:100%;
-	left:0; top:0;
-	z-index:10;
-	background:#4438d1;
+.blog-section li:nth-child(3n+1) {
+/* 1,4,7,10,13...위치에 해당되는 것만 적용 
+n번째 인덱스값이기 때문에 0부터 시작합니다. 3n-2 = 3x0-2 = -2 결과가 이상함. 3n+1=3x0+1=1
+*/
+/*디버그용코드 border:1px solid red;*/
+margin-left:0px;
 }
-li.imglist2 {
-	position:absolute;
-	width:100%;
-	left:0; top:0;
-	z-index:10;
-	background:#2218d1;
-}
-.roll_content {position:relative;}
-.roll_content .roll_txtline {
-	position:absolute;
-	left:0;
-	bottom:60px;
-	width:100%;
-	line-height:1;
-	text-align:center;
-	font-size:22px;
-	color:#fff;
-	letter-spacing:2px;
-}
-.rollbtnArea {
-	position:absolute;
-	width:100%;
-	left:0;
-	bottom:25px;
-	z-index:200;
-}
-.rollingbtn {
-	width:320px; margin:0 auto;
-	text-align:center;
-}
-.rollingbtn li.butt0 {margin-left:10px;}
-.rollingbtn li {
-	display:inline-block;
-	margin-right:5px;
-}
-.rollingbtn li a {vertical-align:top;}
-/* //태블릿용 슬라이드영역 */
+.blog-section hr {display:none;}
+/*blog영역 끝*/
 
-/* 태블릿용 갤러리 최근게시물 */
-.about_area h2 {
-	padding:55px 0 105px;
-	font-size:40px;
+/*contact영역 시작*/
+.input-class, .textarea-class {
+float:left;/*세로배치를 가로배치로 변경*/
+width:49%;/*2개로나누는 가로크기를 47% 지정*/
 }
-.about_area h2 b {display:initial; padding-top:initial;}
-.place_list {
-	box-sizing:border-box;
-	padding:0 20px;
+.input-class {
+margin-right:2%;
 }
-.place_list li:first-child {margin-left:0;}
-.place_list li {
-	float:left;
-	width:32%;
-	margin-left:2%;
-	position:relative;
-	top:-50px;
-	padding:initial;
+.contact-section form textarea {
+min-height: 120px;
 }
-.place_list li p.txt {
-	padding:10px 30px 0;
-	line-height:1.8;
-}
-.place_list li .view {
-	margin-top:20px;
-}
-/* //태블릿용 갤러리 최근게시물 */
+/*contact영역 끝*/
 
-/* 컨테이너 전화상담과 최근공지사항 출력 */
-.appbbs_area {padding:60px 0;}
-.appbbs_box {
-	box-sizing:border-box;
-	padding:0 20px;
-}
-.app_line {
-	display:initial;
-	float:left;
-	width:66%;
-	box-sizing:border-box;
-	padding:45px 0;
-	background:url(../img/bg_app.jpg);
-	font-size:0;
-	text-align:center;
-}
-.app_line a {
-	font-size:21px;
-	display:inline-block;
-	width:42.4%;
-	height:100px;
-	line-height:100px;
-	box-sizing:border-box;
-	padding-left:55px;
-	text-align:left;
-	background:rgba(0,0,0,0.3) url(../img/ico_katalk.png) no-repeat 10px 50%;
-	border:2px solid #fff;
-	color:#fff;
-	vertical-align:middle;
-	margin-right:10px;
-}
-.app_line a + a {
-	margin-right:0;
-	padding-left:65px;
-	background:rgba(0,0,0,0.3) url(../img/ico_phone.png) no-repeat 10px 50%;
-}
-.bbs_line {
-	float:right; width:30%;
-	border-top:none;
-	padding:initial;
-}
-.bbs_line h3 {font-size:26px; font-weight:initial;}
-/* //컨테이너 전화상담과 최근공지사항 출력 */
-
-/* 태블릿용 푸터영역 */
-footer {
-	padding:initial;
-}
-.foot_area {
-	padding-left:20px;
-	padding-bottom:0px;
-}
-.addr {font-size:13px; line-height:1.4;}
-/* //태블릿용 푸터영역 */
-.br_line {display:initial;}
-.snslink {position:absolute; right:20px; top:20px;
-	width:initial; margin:initial;
-}
-.snslink li {margin-left:15px;}
-/* //태블릿용 푸터영역 */
-.quick_list {display:none;}
-
-/* //태블릿용 스타일 끝 */
 }
