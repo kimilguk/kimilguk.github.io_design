@@ -152,7 +152,127 @@
     <!-- 본문내용 Main content -->
     <section class="content">
       <div class="container-fluid">
-        
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">최근등록한 회원목록</h3>
+  
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body p-0">
+            <ul class="users-list clearfix">
+              <li>
+              <a class="users-list-name" href="#">
+                <img src="dist/img/default-150x150.png" alt="User Image">
+                <div>
+                  이름
+                  <span class="users-list-date">
+                  활성
+                  </span>
+                </div>
+              </a>
+              </li>
+            </ul>
+            <!-- /.users-list -->
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer text-center">
+            <a href="member_list.html">View All Users</a>
+          </div>
+          <!-- /.card-footer -->
+        </div>
+
+        <!-- 관리자에서 생성한 게시판 개수만큼 반복문실행 -->
+        <div class="card">
+          <div class="card-header border-transparent">
+            <h3 class="card-title">최근 공지사항</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table m-0">
+                <thead>
+                <tr>
+                  <th>title</th>
+                  <th>writer</th>
+                  <th>reg_date</th>
+                  <th>view_count</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="board_view.html">공지사항 테스트 입니다.</a></td>
+                    <td>admin</td>
+                    <td>2021-05-10 11:22</td>
+                    <td><span class="badge badge-success">10</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.table-responsive -->
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer clearfix">
+            <a href="board_list.html" class="btn btn-sm btn-secondary float-right">목록</a>
+          </div>
+          <!-- /.card-footer -->
+        </div>
+
+        <div class="card">
+          <div class="card-header border-transparent">
+            <h3 class="card-title">최근 겔러리</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table m-0">
+                <thead>
+                <tr>
+                  <th>title</th>
+                  <th>writer</th>
+                  <th>reg_date</th>
+                  <th>view_count</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr><td colspan="4" class="text-center">조회된 값이 없습니다.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.table-responsive -->
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer clearfix">
+            <a href="board_list.html" class="btn btn-sm btn-secondary float-right">목록</a>
+          </div>
+          <!-- /.card-footer -->
+        </div>
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
