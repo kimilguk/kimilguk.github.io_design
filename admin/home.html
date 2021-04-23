@@ -24,8 +24,6 @@
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -96,30 +94,55 @@
           </li>
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./member_list.html" class="nav-link">
-                <!-- 위 메뉴선택시 활성화active 되는 것은 j쿼리로 만들예정입니다. -->
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>관리자 관리</p>
+               <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="member_list.html" class="nav-link">
+                    <!-- 위 메뉴선택시 활성화active 되는 것은 j쿼리로 만들예정입니다. -->
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>관리자 관리</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>게시판생성 관리</p>
+                    </a>
+                  </li>
+                  <li class="nav-item menu-is-opening menu-open">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                         게시물 관리
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                      <!-- 반복구문 -->
+                      <li class="nav-item">
+                        <a href="board_list.html" class="nav-link active">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>공지사항</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="board_list.html" class="nav-link">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>겔러리</p>
+                        </a>
+                      </li>
+                      <!-- //반복구문 -->
+                    </ul>
+                  </li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a href="./board_list.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>게시물 관리</p>
-                </a>
-              </li>
-            </ul>
-          </li>
           
         </ul>
       </nav>
@@ -309,8 +332,6 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
 <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
@@ -329,8 +350,6 @@
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
 </body>
 </html>
 <!-- 관리자단 푸터 끝 -->
