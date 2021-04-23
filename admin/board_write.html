@@ -24,14 +24,6 @@
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-  <!-- write.html은 섬머노트 웹에디터 부분 추가(아래) -->
-  <link rel="stylesheet" href="plugins/summernote/summernote.css">
-  <script src="plugins/summernote/summernote.js"></script>
-  <style>
-  .note-editor.note-frame.fullscreen{background:white;}
-  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -279,8 +271,6 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
 <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
@@ -299,8 +289,6 @@
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
 <!-- 첨부파일 부트스트랩 디자인 JS -->
 <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- 첨부파일 선택한 내용 출력 실행 -->
@@ -330,7 +318,15 @@ $(document).ready(function () {
 			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
 		});
 	});//textarea 중 content아이디영역을 섬머노트에디터로 변경처리 함수실행
-	</script>
+</script>
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <!-- write.html은 섬머노트 웹에디터 부분 추가(아래) -->
+  <link rel="stylesheet" href="plugins/summernote/summernote.css">
+  <script src="plugins/summernote/summernote.js"></script>
+  <style>
+  .note-editor.note-frame.fullscreen{background:white;}
+  </style>
 </body>
 </html>
 <!-- 관리자단 푸터 끝 -->

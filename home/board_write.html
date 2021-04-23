@@ -20,12 +20,6 @@
 <script src="../admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLte -->
 <link rel="stylesheet" href="../admin/dist/css/adminlte.min.css">	
-<!-- write.html은 섬머노트 웹에디터 부분 추가(아래) -->
-<link rel="stylesheet" href="../admin/plugins/summernote/summernote.css">
-<script src="../admin/plugins/summernote/summernote.js"></script>
-<style>
-.note-editor.note-frame.fullscreen{background:white;}
-</style>
 <script>
 $(document).ready(function() {
 	
@@ -187,7 +181,14 @@ $(document).ready(function() {
 		});
 	});//textarea 중 content아이디영역을 섬머노트에디터로 변경처리 함수실행
 	</script>
-	
+	<!-- summernote -->
+	<link rel="stylesheet" href="../admin/plugins/summernote/summernote-bs4.min.css">
+	<!-- write.html은 섬머노트 웹에디터 부분 추가(아래) -->
+	<link rel="stylesheet" href="../admin/plugins/summernote/summernote.css">
+	<script src="../admin/plugins/summernote/summernote.js"></script>
+	<style>
+	.note-editor.note-frame.fullscreen{background:white;}
+	</style>
 	<!-- 푸터메뉴및사업자정보영역 -->
 	<footer>
 		<div class="foot_area box_inner">
