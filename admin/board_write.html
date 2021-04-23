@@ -26,6 +26,12 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <!-- write.html은 섬머노트 웹에디터 부분 추가(아래) -->
+  <link rel="stylesheet" href="plugins/summernote/summernote.css">
+  <script src="plugins/summernote/summernote.js"></script>
+  <style>
+  .note-editor.note-frame.fullscreen{background:white;}
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -96,30 +102,55 @@
           </li>
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./member_list.html" class="nav-link">
-                <!-- 위 메뉴선택시 활성화active 되는 것은 j쿼리로 만들예정입니다. -->
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>관리자 관리</p>
+               <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="member_list.html" class="nav-link">
+                    <!-- 위 메뉴선택시 활성화active 되는 것은 j쿼리로 만들예정입니다. -->
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>관리자 관리</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>게시판생성 관리</p>
+                    </a>
+                  </li>
+                  <li class="nav-item menu-is-opening menu-open">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                         게시물 관리
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                      <!-- 반복구문 -->
+                      <li class="nav-item">
+                        <a href="board_list.html" class="nav-link active">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>공지사항</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="board_list.html" class="nav-link">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>겔러리</p>
+                        </a>
+                      </li>
+                      <!-- //반복구문 -->
+                    </ul>
+                  </li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a href="./board_list.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>게시물 관리</p>
-                </a>
-              </li>
-            </ul>
-          </li>
           
         </ul>
       </nav>
@@ -185,8 +216,13 @@
                   <label>attach</label>
                   </div>
                   <div class="custom-file">
-                    <input type="file" name="file" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile" style="color:#999;">파일첨부</label>
+                    <input type="file" name="file" class="custom-file-input" id="customFile_0">
+                    <label class="custom-file-label" for="customFile_0" style="color:#999;">파일첨부0</label>
+	                </div>
+                  <br><br>
+                  <div class="custom-file">
+                    <input type="file" name="file" class="custom-file-input" id="customFile_1">
+                    <label class="custom-file-label" for="customFile_1" style="color:#999;">파일첨부1</label>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -273,6 +309,28 @@ $(document).ready(function () {
   bsCustomFileInput.init();
 });
 </script>
+<script>
+	$(document).ready(function(){
+		$('#content').summernote({
+			height:150,
+			lang:"ko-KR",
+			placeholder:'글 내용을 입력해 주세요',
+			toolbar: [
+					    ['fontname', ['fontname']],
+					    ['fontsize', ['fontsize']],
+					    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+					    ['color', ['forecolor','color']],
+					    ['table', ['table']],
+					    ['para', ['ul', 'ol', 'paragraph']],
+					    ['height', ['height']],
+					    ['insert',['link','video']],//'picture',
+					    ['view', ['fullscreen', 'help']]
+					],
+			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'],
+			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+		});
+	});//textarea 중 content아이디영역을 섬머노트에디터로 변경처리 함수실행
+	</script>
 </body>
 </html>
 <!-- 관리자단 푸터 끝 -->

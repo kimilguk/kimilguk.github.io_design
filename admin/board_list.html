@@ -96,30 +96,55 @@
           </li>
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./member_list.html" class="nav-link">
-                <!-- 위 메뉴선택시 활성화active 되는 것은 j쿼리로 만들예정입니다. -->
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>관리자 관리</p>
+               <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="member_list.html" class="nav-link">
+                    <!-- 위 메뉴선택시 활성화active 되는 것은 j쿼리로 만들예정입니다. -->
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>관리자 관리</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>게시판생성 관리</p>
+                    </a>
+                  </li>
+                  <li class="nav-item menu-is-opening menu-open">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                         게시물 관리
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                      <!-- 반복구문 -->
+                      <li class="nav-item">
+                        <a href="board_list.html" class="nav-link active">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>공지사항</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="board_list.html" class="nav-link">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>겔러리</p>
+                        </a>
+                      </li>
+                      <!-- //반복구문 -->
+                    </ul>
+                  </li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a href="./board_list.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>게시물 관리</p>
-                </a>
-              </li>
-            </ul>
-          </li>
           
         </ul>
       </nav>
