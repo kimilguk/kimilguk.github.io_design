@@ -7,6 +7,7 @@
 - 사용자 화면으로 구현할 파일명은 index.html, board_list.html, board_view.html, board_write.html 입니다.
 
 #### 공용PC에서 Git 사용시 주의사항
+- PC 이동해서 작업할 실습이 많기 때문에 항상 작업 시작 전 git pull 실행함. 작업 후 git push 실행함.
 - user.name, user.email 등록 시 : git config --local 사용 user.name <name> | user.email <email>
 - Git-scm 설치시 Enable Git Credential Manager 체크박스 해제 하고 설치 하시면 됩니다.
 - 이미 설치한 상태라면, 괸리자권한으로 cmd실행 후 git credential-manager uninstall --force 하면, 자동 저잗되지 않습니다.
