@@ -5,6 +5,7 @@
 - html및css,자바스크립트 테스트는 test.html 생성 후 실시 합니다.
 - 스프링에서 사용할 사용자단 화면의 더미데이터는 dummy_index, dummy_list, dummy_view, dummy_write로 구현합니다.
 - 사용자 화면으로 구현할 파일명은 index.html, board_list.html, board_view.html, board_write.html 입니다.
+- 깃은 터미널에서 사용합니다. vs code의 GUI를 이용했다면, 아래 본인 아이디/암호를 삭제 하셔야 안전합니다.
 - VS code에서 깃 사용시 아이디/암호는 [윈도우 자격증명]에 저장 되기 때문에, 공용PC에서는 깃자격만 제거
 #### 정규표현식 - VS code 의 검색기능으로 확인
 - 정규표현식 실습 내용: http://zvon.org/comp/r/tut-Regexp.html
