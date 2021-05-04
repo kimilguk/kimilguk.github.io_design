@@ -9,8 +9,8 @@
 #### 공용PC에서 Git 사용시 주의사항
 - PC 이동해서 작업할 실습이 많기 때문에 항상 작업 시작 전 git pull 실행함. 작업 후 git push 실행함.
 - user.name, user.email 등록 시 : git config --local 사용 user.name <name> | user.email <email>
-- Git-scm 설치시 Enable Git Credential Manager 체크박스 해제 하고 설치 하시면 됩니다.
-- 이미 설치한 상태라면, 괸리자권한으로 cmd실행 후 git credential-manager uninstall --force 하면, 자동 저잗되지 않습니다.
+- [윈도우 자격증명]에 저장을 방지하기 위해서 Git-scm 설치시 Enable Git Credential Manager 체크박스 해제 하고 설치 하시면 됩니다.
+- 만약 이미 설치한 상태라면, 괸리자권한으로 cmd실행 후 git credential-manager uninstall --force 하면, 자동 저장되지 않습니다.
 - 깃 푸시를 이용했다면, 아래 본인 자격 증명을 삭제 하셔야 안전합니다.
 - VS code에서 깃 사용시 아이디/암호는 [윈도우 자격증명]에 저장 되기 때문에, 공용PC에서는 깃자격만 제거
 - 기술참조: https://cau-dosc.github.io/notices-to-use-git-on-laboratory-pc.html
