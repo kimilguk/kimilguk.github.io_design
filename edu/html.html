@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML, CSs, JS">
+    <title>HTML 실습</title>
+    <style>
+        div{
+            border: 1px solid black;
+        }
+        table,tr,th,td {
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+        /* css 주석 */
+    </style>
+</head>
+<body>
+    <!-- 12 블럭과 인라인블럭 속성사용 -->
+    <img width="200px" src="../home/img/img_pop1_1.jpg" alt="엑박이미지표시">
+    <p>블럭</p>
+    <img width="200px" src="../home/img/img_top2.jpg" alt="엑박이미지표시">
+    <!-- 11 HTML5 구조 
+        header>h1{헬로 HTML}
+        nav>ul>li{menu}*3
+        section>h1{section}+article>h1{article}
+        aside>h1{aside}
+        footer>h1{footer}
+    -->
+    <header>
+        <h1>헬로 HTML</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>menu</li>
+            <li>menu</li>
+            <li>menu</li>
+        </ul>
+    </nav>
+    <section>
+        <h1>section</h1>
+        <article>
+            <h1>article</h1>
+        </article>
+    </section>
+    <aside>
+        <h1>aside</h1>
+    </aside>
+    <footer>
+        <h1>footer</h1>
+    </footer>
+    <!-- 10 메타 태그사용 -->
+    <!-- 09 테이블 테그사용 
+        table>(tr>td*5)*3
+    -->
+    <table>
+    <thead>
+        <tr>
+            <th>순번</th>
+            <th>책이름</th>
+            <th>가격</th>
+            <th>판매량</th>
+            <th>판매액</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>HTML</td>
+            <td>7,000</td>
+            <td rowspan="2">1,000</td>
+            <td>7,000,000</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>JS</td>
+            <td>7,000</td>
+            <!-- <td>1,000</td> -->
+            <td>7,000,000</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">총액</td>
+            <td>14,000,000</td>
+        </tr>
+    </tfoot>
+    </table>
+    <!-- 08 폼 태그사용 -->
+    <input type="text" name="text" id="">
+    <input type="password" name="password" id="">
+    <input type="date" name="date" id="">
+    <input type="range" name="range" id="">
+    <input type="color" name="color" id="">
+    <input type="radio" name="radio" id="">
+    <input type="radio" name="radio" id="">
+    <input type="checkbox" name="checkbox" id="">
+    <input type="checkbox" name="checkbox2" id="">
+    <input type="file" name="file" id="">
+    <textarea name="textarea" id="" cols="30" rows="10"></textarea>
+    <!-- 07 유투브영상 가져오기 -->
+    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/hgdMVCAJHOM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- 06 이미지 태그사용 -->
+    <img width="200px" src="" alt="엑박이미지표시">
+    <!-- 05 영역지정 태그사용
+     -->
+     <div>
+         <a href="https://naver.com">네이버</a>
+         <a href="https://naver.com">네이버</a>
+         <a href="https://naver.com">네이버</a>
+     </div>
+    <!-- 04 리스트 태그사용
+        ol>li{헬로 html}*3
+     -->
+     <ul>
+         <li>헬로 html</li>
+         <li>헬로 html</li>
+         <li>헬로 html</li>
+     </ul>
+     <ol type="A">
+        <li>헬로 html</li>
+        <li>헬로 html</li>
+        <li>헬로 html</li>
+    </ol>
+    <!-- 03 첨자사용 -->
+    <p>H<sub>2</sub>O</p>
+    <p>X<sup>2</sup>=4</p>
+    <!-- 02 lorem 로렘 입숨 사용 
+        lorem100
+    -->
+    <p><strong>Lorem</strong> <em>ipsum</em> <mark>dolor</mark> sit, amet consectetur adipisicing elit. Explicabo ea non molestiae perferendis vel expedita quaerat commodi quo vero dolores, mollitia dolorem neque quae quis, accusamus, dolore provident! Commodi, tempore!</p>
+    <!-- 01 Emmet문법사용
+        html:5 기본서식 생성
+        h${헬로 html}*6
+    -->
+    <h1>헬로 html</h1>
+    <h2>헬로 html</h2>
+    <h3>헬로 html</h3>
+    <h4>헬로 html</h4>
+    <h5>헬로 html</h5>
+    <h6>헬로 html</h6>
+    <hr>
+    <br><br><br>
+    <p>헬로 Html</p>
+</body>
+</html>
