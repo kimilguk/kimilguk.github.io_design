@@ -15,6 +15,9 @@
 - VS code에서 깃 사용시 아이디/암호는 [윈도우 자격증명]에 저장 되기 때문에, 공용PC에서는 깃자격만 제거
 - 기술참조: https://cau-dosc.github.io/notices-to-use-git-on-laboratory-pc.html
 
+#### 30분 강의
+- https://edu.goorm.io/lecture/16385/30%EB%B6%84-%EC%9A%94%EC%95%BD-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%8B%9C%EC%A6%8C1-html-css-js-python-%EC%9A%94%EC%95%BD%ED%8E%B8
+
 #### 정규표현식 - VS code 의 검색기능으로 확인
 - 정규표현식 실습 내용: http://zvon.org/comp/r/tut-Regexp.html
 - 정교표현식 내용 다이어그램으로 분석: https://regexper.com/
