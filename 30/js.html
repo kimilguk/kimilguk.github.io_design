@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        table, tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th { width: 15%;}
+    </style>
+    <table id="board">
+        <tr>
+            <th>id</th>
+            <th>age</th>
+            <th>eyeColor</th>
+            <th>name</th>
+        </tr>
+        <tbody></tbody>
+    </table>
+    <script src="user.js"></script>
+    <script>
+    // 18 외부 json데이터를 가지고, 화면에 렌더링 하기 = 파싱하기
+    //https://www.json-generator.com/ 사용 table>th*7+tbody>tr>td*7
+    $(document).ready(function(){
+        for(var i=0;i<user.length;i++) {
+            $('#board tbody').append('<tr>');
+            $('#board tbody').append('<td>'+user[i]['_id']+'</td>');
+            $('#board tbody').append('<td>'+user[i]['age']+'</td>');
+            $('#board tbody').append('<td>'+user[i]['eyeColor']+'</td>');
+            $('#board tbody').append('<td>'+user[i]['name']+'</td>');
+            $('#board tbody').append('</tr>');
+        }
+    });
+    </script>
+    <h1 class="one">헬로 jQuery1</h1>
+    <h1 class="one two">헬로 jQuery2</h1>
+    <h1 class="one two three" id="four">헬로 jQuery3</h1>
+    <h1>헬로 jQuery4</h1>
+    <h1>헬로 jQuery5</h1>
+    <h1>헬로 jQuery6</h1>
+    <button id="play">jQuery실습</button>
+    <p id="one" class="two">헬로 자바스크립트1</p>
+    <p class="two">헬로 자바스크립트2</p>
+    <input type="text" name="name" id="name" value="테스트">
+    <button onclick="checkValue()">입력값 확인</button>
+    <button id="checkValue">jQuery로 입력값 확인</button>
+    <script>
+        // 17 jQuery 실습 h1{헬로 jQuery}*6
+        $(document).ready(function(){
+            $('#play').bind('click', function(){
+                // $('#id') id선택
+                // $('.class') class선택
+                // $('h1.class') h1중에서 해당class만 선택
+                $('h1#four').html('선택자 활용');
+                //가상선택자사용 :event:odd
+                //함수(속성값변경, DOM탐색, css, 이벤트효과처리)
+                $('h1:first').html('<mark>반값습니다.!!!!</mark>').fadeOut(3000).fadeIn(3000).fadeOut(3000).fadeIn(3000);
+                $('h1:last').text('<mark>반값습니다.!!!!</mark>');
+                $('h1.one:odd').html('가상선택자 활용');
+            });
+        });
+        // 16 jQuery 코어(프레임워크) 사용하기
+        // 장점1. 엘리먼트를 선택할 수 있는 쉬운 방법
+        // 장점2. 선택된 엘리먼트를 쉽게 제어할 수 있는 방법
+        $(document).ready(function(){
+            $('#checkValue').click(function(){
+                alert($('#name').val());
+                $('#one').css('backgroundColor','red');
+            });
+        });
+        // 15 복수 element를 선택
+        var names = document.getElementById('name');//1개만 선택
+        var inputName = document.getElementsByName('name');//1개이상 선택
+        var className = document.getElementsByClassName('two');//1개이상 선택
+        console.log(className);
+        document.write('<br>');
+        document.write(className[0]['innerHTML']);
+        document.write('<br>');
+        document.write(className[1]['innerHTML']);
+        document.write('<br>');
+        console.log(inputName);
+        document.write(inputName[0]['defaultValue']);
+        function checkValue() {
+            alert(inputName[0]['value']);
+            alert(names.value);
+            $('#one').css('backgroundColor','red');
+            // document.getElementById('one').style.backgroundColor = 'red';
+        }
+        // 14 변수의 영역: function스코프 var, 블록scope let, const
+        var i = 10;
+        var ii = 0;
+        if(i>5) {
+            let ii = 100;
+        }else{
+            let ii = 200;
+        }
+        function test(params) {
+            var ii = 200;
+        }
+        test(1);
+        document.write(ii);
+        document.write('<br>');
+        document.write('<hr>');
+        // 13 반복문
+        var arrays = [10, 20, 30, 40, 50];
+        for(var i=0;i<arrays.length;i++){
+            document.write(arrays[i]);
+            document.write('<br>');
+        }
+        document.write('<br>');
+        var i=0;
+        while(i < arrays.length) {
+            document.write(arrays[i]);
+            document.write('<br>');
+            i++;
+        }
+        document.write('<hr>');
+        // 12 조건문
+        if(false) {
+            document.write('헬로 자바스크립트');
+        }else if(true) {
+            document.write('else if');
+        }else if(true) {
+            document.write('else if two');
+        }else{
+            document.write('else');
+        }
+        document.write('<br>');
+        var key = 3;
+        switch (key) {
+            case 1:
+                document.write(key);
+                break;
+            case 3:
+                document.write(key);
+                break;    
+            case 3:
+                document.write(key);
+                break;
+        
+            default:
+                break;
+        }
+        document.write('<hr>');
+        // 11 Json 오브젝트 데이터 사용
+        var person = {
+            name:{
+                firstname:'김',
+                lastname:'일국'
+            },
+            age:10,
+            married:true
+        };
+        document.write(person['name']);
+        document.write('<br>');
+        document.write(person['name']['lastname']);
+        document.write('<br>');
+        document.write(person['age']);
+        document.write('<br>');
+        document.write('<hr>');
+        // 10 배열사용
+        var arrays = [10, 20, 30, 40]
+        document.write('배열변수형: ', typeof(arrays));
+        document.write('<br>');
+        document.write(arrays[2]);
+        document.write('<br>');
+        document.write(arrays.slice(1,4));
+        document.write('<br>');
+        document.write(arrays.pop());
+        document.write('<br>');
+        document.write(arrays);
+        document.write('<br>');
+        document.write(arrays.push(1000));
+        document.write('<br>');
+        document.write(arrays);
+        document.write('<br>');
+        document.write(arrays.join('!!'));
+        document.write('<br>');
+        document.write(arrays);
+        document.write('<br>');
+        document.write(arrays.sort(function(a,b){return a-b}));
+        document.write('<br>');
+        // document.write(arrays.reverse());
+        document.write(arrays.sort(function(a,b){return b-a}));
+        //정렬기술참조: https://tonks.tistory.com/124
+        document.write('<hr>');
+        // 09 날짜내장함수사용
+        var date = new Date();
+        document.write(date);
+        document.write('<br>');
+        document.write(date.getMonth());
+        document.write('<br>');
+        document.write(date.getDay());
+        document.write('<br>');
+        document.write(date.getDate());
+        document.write('<br>');
+        document.write(date.getHours());
+        document.write('<hr>');
+        // 08 내장함수사용
+        var txt = 'Kimilguk is javascript';
+        var num = 10;
+        document.write(txt.length);
+        document.write('<br>');
+        document.write(txt.indexOf('is'));
+        document.write('<br>');
+        document.write(txt.slice(0,7));
+        document.write('<br>');
+        document.write(txt.replace('is','IS'));
+        document.write('<br>');
+        document.write(txt.toUpperCase());
+        document.write('<br>');
+        document.write(txt.toLowerCase());
+        document.write('<br>');
+        document.write(num.toFixed(6));
+        document.write('<br>');
+        document.write(num.toString()+num.toString());
+        document.write('<br>');
+        document.write(Math.PI);
+        document.write('<br>');
+        document.write(Math.max(10, 20, 30));
+        document.write('<br>');
+        document.write(Math.random()*10);
+        document.write('<hr>');
+        // 07 함수 변수사용
+        var plus = function(x,y) {
+            var z;
+            z = x + y;
+            return z;
+        };
+        document.write('함수변수형: ', typeof(plus));
+        document.write('<br>');
+        document.write(plus(3,6));
+        document.write('<hr>');
+        // 06 논리연산자사용
+        var x, y, z;
+        x = true; y = false;
+        document.write('논리변수형: ', typeof(x));
+        document.write('<br>');
+        document.write(x || y);//or +
+        document.write('<br>');
+        document.write(x && y);//and *
+        document.write('<br>');
+        document.write(!y);//not
+        document.write('<hr>');
+        // 05 비교연산자사용
+        var x, y, z;
+        x = 5; y = 2; z = '5';
+        document.write(x > y);
+        document.write('<br>');
+        document.write(x >= y);
+        document.write('<br>');
+        document.write(x < y);
+        document.write('<br>');
+        document.write(x <= y);
+        document.write('<br>');
+        document.write(x == z);
+        document.write('<br>');
+        document.write(x != z);
+        document.write('<br>');
+        document.write(x === z);
+        document.write('<hr>');
+        // 04 사칙연산자사용
+        var x, y;
+        x = 5; y = 2;
+        document.write(x + y);
+        document.write('<br>');
+        document.write(x - y);
+        document.write('<br>');
+        document.write(x * y);
+        document.write('<br>');
+        document.write(x ** y);
+        document.write('<br>');
+        document.write(x / y);
+        document.write('<br>');
+        document.write(x % y);
+        document.write('<br>');
+        x++;y--;
+        document.write('x는 : ', x, '<br>y는 : ', y);
+        document.write('<br>');
+        x *= 3;// x = x * 3
+        document.write(x);
+        document.write('<hr>');
+        x *= 3;
+        // 03 변수사용=데이터사용 number, string, boolean, object(array), function)
+        var 변수1 = 100;
+        document.write(typeof(변수1));
+        document.write('<br>');
+        변수1 = '200';
+        document.write(typeof(변수1));
+        document.write('<br>');
+        document.write(변수1+변수1);
+        document.write('<br>');
+        var name = 'kimilguk';
+        document.write(name[0]);
+        document.write('<hr>');
+        // 02 자바스크립트가 인터프리터 언어인 이유 확인
+        // 01 기본사용: 개체선택, 디버그방법 p#one{헬로 자바스크립트}
+        document.getElementById('one').innerHTML = '헬로 <strong>Javascript</string>';
+        document.write("헬로 자바스크립트");
+        // window.alert("헬로우 자바스크립트");
+        console.log("헬로우 자바스크립트");
+    </script>
+</body>
+</html>
