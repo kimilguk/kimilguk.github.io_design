@@ -31,6 +31,7 @@
                     console.log(result);
                     var jsonResult = result.data;                    
                     console.log(jsonResult.length);
+                    // [강조]아래 반복문중 1과 2번째 방식이 제일 많이 사용됩니다.
                     $('#board #tbody').css('color','red');
                     for(var i=0; i<jsonResult.length; i++) {
                         if(i==10) break;//너무 많아서 10개 제한
