@@ -1,4 +1,4 @@
-var user = [
+var jsonData = [
   {
     "_id": "60962114d8421430abce3340",
     "age": 25,
